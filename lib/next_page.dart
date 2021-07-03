@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'nextnextpage.dart';
 
 class NextPage extends StatelessWidget {
   @override
@@ -10,13 +11,35 @@ class NextPage extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: RaisedButton(
-          child: Text('前のページに戻るよ'),
-          onPressed: () {
-// -*--*--*--*--*- Navigator -*--*--*--*--*-
-            Navigator.pop(context);
-// -*--*--*--*--*- Navigator -*--*--*--*--*-
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => NextNextPage()));
+              },
+              child: Text('next'),
+              style: TextButton.styleFrom(
+                primary: Colors.orange,
+                textStyle: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('back'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.orange,
+                textStyle: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
