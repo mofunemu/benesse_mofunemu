@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class NextNextPage extends StatelessWidget {
+class CreateThreadPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'スクショ！',
+          '新規スレッド作成',
         ),
       ),
       body: Center(
         child: RaisedButton(
-          child: Text('今は3ページ目,戻るのみ'),
+          child: Text('スレッド一覧へ戻る'),
           onPressed: () {
 // -*--*--*--*--*- Navigator -*--*--*--*--*-
             Navigator.pop(context);

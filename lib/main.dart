@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'next_page.dart';
+import 'thread_all.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,7 +25,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'スクショ！',
+          'ログイン画面',
         ),
       ),
       body: Center(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'nextnextpage.dart';
+import 'in_thread.dart';
+import 'create_thread.dart';
 
 class NextPage extends StatelessWidget {
   @override
@@ -7,7 +8,7 @@ class NextPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'スクショ！',
+          'スレッド画面',
         ),
       ),
       body: Center(
@@ -17,9 +18,24 @@ class NextPage extends StatelessWidget {
             TextButton(
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => NextNextPage()));
+                    MaterialPageRoute(builder: (context) => InThreadPage()));
               },
-              child: Text('next'),
+              child: Text('スレッド内へと'),
+              style: TextButton.styleFrom(
+                primary: Colors.orange,
+                textStyle: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CreateThreadPage()));
+              },
+              child: Text('新規スレッド作成'),
               style: TextButton.styleFrom(
                 primary: Colors.orange,
                 textStyle: TextStyle(
@@ -31,7 +47,7 @@ class NextPage extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text('back'),
+              child: Text('ログアウト'),
               style: ElevatedButton.styleFrom(
                 primary: Colors.orange,
                 textStyle: TextStyle(
