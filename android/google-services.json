@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "151426673580",
+    "project_id": "mofunemu",
+    "storage_bucket": "mofunemu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:151426673580:android:094d958b2926cb16bba809",
+        "android_client_info": {
+          "package_name": "com.example.mofunemu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "151426673580-o58s6d7h82badp1b733qvqkfg98bnn62.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY7K_7FzslZp9XXXOEwI9YqpaNw2-QD3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "151426673580-o58s6d7h82badp1b733qvqkfg98bnn62.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
