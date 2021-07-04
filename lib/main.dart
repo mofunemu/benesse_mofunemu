@@ -61,7 +61,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => NextPage(_userController.text)));
+                        builder: (context) =>
+                            NextPage(_userController.text, "", "", "")));
 // -*--*--*--*--*- Navigator -*--*--*--*--*-
               },
             ),
