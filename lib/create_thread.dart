@@ -67,6 +67,16 @@ class CreateThreadPage extends StatelessWidget {
             RaisedButton(
               child: Text('投稿'),
               onPressed: () {
+                final date = DateTime.now().toLocal().toIso8601String(); // 現在の日
+                // 投稿メッセージ用ドキュメント作成
+                Firestore.instance
+                    .collection('数学') // コレクションID指定
+                    .document() // ドキュメントID自動生成
+                    .setData({
+                  'text': _questionController,
+                  'theme': _themeController,
+                  'date': date
+                });
                 Navigator.push(
                     context,
                     MaterialPageRoute(
