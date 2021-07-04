@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:mofunemu/thread_all.dart';
+import 'in_thread.dart';
 
 class CreateThreadPage extends StatelessWidget {
+  CreateThreadPage(this.name);
+  String name;
   @override
   var _categoryController = TextEditingController();
   var _questionController = TextEditingController();
   var _themeController = TextEditingController();
+  void add_data(var x, var y, var z) {
+    var theme = "数学";
+    Firestore.instance
+        .collection(theme)
+        .add({"theme": _questionController, "honbun": _themeController});
+  }
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,8 +67,17 @@ class CreateThreadPage extends StatelessWidget {
             RaisedButton(
               child: Text('投稿'),
               onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => NextPage(
+                            this.name,
+                            _categoryController.text,
+                            _themeController.text,
+                            _questionController.text)));
 // -*--*--*--*--*- Navigator -*--*--*--*--*-
-                Navigator.pop(context);
+                //Navigator.pop(context);
+                // add_data("あ", "い", "う");
 // -*--*--*--*--*- Navigator -*--*--*--*--*-
               },
             ),
@@ -66,6 +86,16 @@ class CreateThreadPage extends StatelessWidget {
               onPressed: () {
 // -*--*--*--*--*- Navigator -*--*--*--*--*-
                 Navigator.pop(context);
+                final date = DateTime.now().toLocal().toIso8601String(); // 現在の日
+                // 投稿メッセージ用ドキュメント作成
+                Firestore.instance
+                    .collection('数学') // コレクションID指定
+                    .document() // ドキュメントID自動生成
+                    .setData({
+                  'text': _questionController,
+                  'theme': _themeController,
+                  'date': date
+                });
 // -*--*--*--*--*- Navigator -*--*--*--*--*-
               },
             ),
@@ -75,10 +105,6 @@ class CreateThreadPage extends StatelessWidget {
     );
   }
 }
-
-
-
-
 /*
 class CreateThreadPage extends StatelessWidget {
   @override
