@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:mofunemu/main.dart';
 import 'in_thread.dart';
 import 'create_thread.dart';
+import 'main.dart';
 
 class NextPage extends StatelessWidget {
-  NextPage(this.name);
-  String name;
+  NextPage(this.name, this.category, this.theme, this.qustion);
+  String name, category, theme, qustion;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class NextPage extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => CreateThreadPage()));
+                            builder: (context) => CreateThreadPage(this.name)));
                   },
                   backgroundColor: Colors.blue,
                   child: Icon(Icons.add)),
@@ -35,10 +37,18 @@ class NextPage extends StatelessWidget {
             Text('ようこそ' + this.name + 'さん', style: TextStyle(fontSize: 24)),
             TextButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => InThreadPage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => InThreadPage(this.name,
+                            this.category, this.theme, this.qustion)));
               },
-              child: Text('スレッド内へと'),
+              child: Text(this.category +
+                  "," +
+                  this.theme +
+                  "," +
+                  this.qustion +
+                  'スレッド内へと'),
               style: TextButton.styleFrom(
                 primary: Colors.orange,
                 textStyle: TextStyle(
@@ -48,7 +58,8 @@ class NextPage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => MyHomePage()));
               },
               child: Text('ログアウト'),
               style: ElevatedButton.styleFrom(
